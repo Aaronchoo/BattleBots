@@ -5,8 +5,6 @@
 class PvpStage : public Stage {
     
     public:
-        PvpStage();
-        ~PvpStage();
         void introduction() override;
         void startBattle() override;
         void endGame() override;
