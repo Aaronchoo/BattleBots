@@ -9,5 +9,4 @@ class PveStage : public Stage {
         void endGame() override;
 
 };
-
 #endif

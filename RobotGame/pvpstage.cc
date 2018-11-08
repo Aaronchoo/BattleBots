@@ -23,23 +23,23 @@ void PvpStage::startBattle() {
     }
     
     // explianing the game
-    cout << "The game will now begin! To play, enter [A] to attack and [D] to defend." << endl << "When you attack, you most you will damage your opponent is the strength of your robot while the least will be your attrack minus their defense." << endl << "When defending, there is a chance your defense will double or even triple.";
+    cout << "The game will now begin! To play, enter [A] to attack and [D] to defend." << endl << "When you attack, you most you will damage your opponent is the strength of your robot while the least will be your attrack minus their defense." << endl << "When defending, there is a chance your defense will double or even triple." <<endl;
     
     // save data to temp Robots to fight
     Robots tempHome = Robots{*getHomeRobot()};
     Robots tempAway = Robots{*getAwayRobot()};
-
+    string homeMove, awayMove;
     // the righting process
     while(tempHome.getHealth() > 0 && tempAway.getHealth() > 0) {
 
-        string homeMove, awayMove;
+       
         // gets the moves
         homeMove = getMove(tempHome);
         awayMove = getMove(tempAway);
 
         // robots will either defend or attack
-        robotFight(tempHome,tempAway, homeMove, awayMove);
-        gameStats();
+        robotFight(tempHome, tempAway, homeMove, awayMove);
+        cout << "The stats are:" << endl << tempHome.getStats() << endl << tempAway.getStats() << endl;
     }
 
     // once someone losses the score will be added
@@ -55,5 +55,6 @@ void PvpStage::startBattle() {
 void PvpStage::endGame() {
     // outro
     cout << "I hope you had fun playing! The final score is: " + getScore() << endl;
-    cout << "The stats are:" << endl << getHomeRobot()->getStats() << endl << getAwayRobot()->getStats(); 
+    gameStats();
+    resetScore();
 }

@@ -20,7 +20,7 @@ void PveStage::startBattle() {
     changeAwayRobot(new Robots());
     
     // explanation
-    cout << "The game will now begin! To play, enter [A] to attack and [D] to defend." << endl << "When you attack, you most you will damage your opponent is the strength of your robot while the least will be your attrack minus their defense." << endl << "When defending, there is a chance your defense will double or even triple.";
+    cout << "The game will now begin! To play, enter [A] to attack and [D] to defend." << endl << "When you attack, you most you will damage your opponent is the strength of your robot while the least will be your attrack minus their defense." << endl << "When defending, there is a chance your defense will double or even triple." << endl;
 
     // creating temp robots
     Robots tempHome = Robots{*getHomeRobot()};
@@ -38,7 +38,7 @@ void PveStage::startBattle() {
 
         // robots make their move
         robotFight(tempHome,tempAway, homeMove, awayMove);
-        gameStats();
+        cout << "The stats are:" << endl << tempHome.getStats() << endl << tempAway.getStats() << endl;
     }
 
     // score is updated
@@ -54,4 +54,5 @@ void PveStage::endGame() {
     //outro
     cout << "I hope you had fun playing! The final score is: " + getScore() << endl;
     cout << "The stats are:" << endl << getHomeRobot()->getStats() << endl; 
+    resetScore();
 }

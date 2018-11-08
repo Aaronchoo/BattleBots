@@ -2,7 +2,7 @@
 #ifndef PVPSTAGE_H
 #define PVPSTAGE_H
 
-class PvpStage : public Stage {
+class PvpStage final : public Stage {
     
     public:
         void introduction() override;
@@ -10,5 +10,4 @@ class PvpStage : public Stage {
         void endGame() override;
 
 };
-
 #endif

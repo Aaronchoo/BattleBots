@@ -14,14 +14,15 @@ class Stage {
         std::string getScore();
         Robots *getHomeRobot();
         Robots *getAwayRobot();
+        void resetScore();
     public:
         virtual ~Stage();
         virtual void introduction() = 0;
         virtual void startBattle() = 0;
         virtual void endGame() = 0;
         void gameStats();
-        std::string getMove(Robots &);
         void robotFight(Robots &, Robots &, std::string, std::string);
+        std::string getMove(Robots &);
     
 
 };
